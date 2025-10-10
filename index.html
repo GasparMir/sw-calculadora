@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calculadora - PWA</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Calculadora Científica</h1>
+
+    <div id="display">0</div>
+
+    <div id="buttons">
+      <button data-action="clear" class="btn-clear">C</button>
+      <button data-action="op" data-value="(" class="btn-operator">(</button>
+      <button data-action="op" data-value=")" class="btn-operator">)</button>
+      <button data-action="op" data-value="/" class="btn-operation">÷</button>
+
+      <button data-action="num" data-value="7" class="btn-number">7</button>
+      <button data-action="num" data-value="8" class="btn-number">8</button>
+      <button data-action="num" data-value="9" class="btn-number">9</button>
+      <button data-action="op" data-value="*" class="btn-operation">×</button>
+
+      <button data-action="num" data-value="4" class="btn-number">4</button>
+      <button data-action="num" data-value="5" class="btn-number">5</button>
+      <button data-action="num" data-value="6" class="btn-number">6</button>
+      <button data-action="op" data-value="-" class="btn-operation">−</button>
+
+      <button data-action="num" data-value="1" class="btn-number">1</button>
+      <button data-action="num" data-value="2" class="btn-number">2</button>
+      <button data-action="num" data-value="3" class="btn-number">3</button>
+      <button data-action="op" data-value="+" class="btn-operation">+</button>
+
+      <button data-action="num" data-value="0" class="btn-number btn-zero">0</button>
+      <button data-action="num" data-value="." class="btn-number">.</button>
+      <button data-action="equals" class="btn-equals">=</button>
+
+    </div>
+
+    <p class="status">Estado SW: <span id="sw-status">sin registrar</span></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+ <script>
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registrado en Página 1', reg))
+                .catch(err => console.log('Error al registrar SW', err));
+        }
+
+        function updateStatus() {
+            const status = document.getElementById('status');
+            if (navigator.onLine) {
+                status.textContent = 'Online';
+                status.style.color = '#4CAF50';
+            } else {
+                status.textContent = 'Offline';
+                status.style.color = '#f44336';
+            }
+        }
+
+        window.addEventListener('online', updateStatus);
+        window.addEventListener('offline', updateStatus);
+        updateStatus();
+    </script>
+</html>
