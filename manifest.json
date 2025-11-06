@@ -1,0 +1,19 @@
+{
+  "name": "Calculadora PWA",
+  "short_name": "CalPWA",
+  "description": "Aplicación PWA de una calculadora.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+        "src": "icon-180.png",
+        "sizes": "180x180",
+        "type": "image/png"
+    }
+
+]
+}
