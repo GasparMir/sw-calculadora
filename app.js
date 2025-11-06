@@ -33,18 +33,11 @@ document.getElementById('buttons').addEventListener('click', (e) => {
 
 const swStatus = document.getElementById('sw-status');
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js', { scope: '/' })
-      .then(reg => {
-        swStatus.textContent = 'registrado (vía ' + (reg.active ? 'activo' : 'instalado') + ')';
-        console.log('[App] Service Worker registrado', reg);
-      })
-      .catch(err => {
-        swStatus.textContent = 'error al registrar';
-        console.error('[App] Registro SW falló:', err);
-      });
-  });
-} else {
-  swStatus.textContent = 'no soportado en este navegador';
-}
+// Registrar Service Worker
+document.addEventListener('DOMContentLoaded', () => {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(() => console.log('Service Worker registrado'))
+            .catch(err => console.error('Error registrando SW:', err));
+    }
+});

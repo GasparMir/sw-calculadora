@@ -42,28 +42,4 @@
 
   <script src="app.js"></script>
 </body>
-
- <script>
-        // Registrar Service Worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(reg => console.log('Service Worker registrado en Página 1', reg))
-                .catch(err => console.log('Error al registrar SW', err));
-        }
-
-        function updateStatus() {
-            const status = document.getElementById('status');
-            if (navigator.onLine) {
-                status.textContent = 'Online';
-                status.style.color = '#4CAF50';
-            } else {
-                status.textContent = 'Offline';
-                status.style.color = '#f44336';
-            }
-        }
-
-        window.addEventListener('online', updateStatus);
-        window.addEventListener('offline', updateStatus);
-        updateStatus();
-    </script>
 </html>
