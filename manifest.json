@@ -1,6 +1,6 @@
 {
   "name": "Calculadora PWA",
-  "short_name": "]CalculadoraPwa",
+  "short_name": "CalculadoraPwa",
   "description": "Aplicación PWA de Calculadora.",
   "start_url": "./",
   "scope": "./",
