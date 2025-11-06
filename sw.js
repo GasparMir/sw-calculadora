@@ -1,10 +1,10 @@
 const CACHE_NAME = 'app-shell-v2';
 const urlsToCache = [
-    './',
-    './index.html',
-    './app.js',
-    './styles.css',
-    './manifest.json'
+    '/',
+    '/index.html',
+    '/app.js',
+    '/styles.css',
+    '/manifest.json'
 ];
 
 // Instalar Service Worker
